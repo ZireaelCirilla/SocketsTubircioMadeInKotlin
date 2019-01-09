@@ -8,13 +8,13 @@ import java.util.*
 class Client {
     companion object {
 
-        val PORT = 40080
+        val PORT = 40000
 
         @JvmStatic
         fun main(args: Array<String>) {
             println("Kotlin main is running here!")
 
-            val HOST = "192.168.201.35"
+            val HOST = "localhost"
 
             var socket = Socket(HOST, PORT)
             

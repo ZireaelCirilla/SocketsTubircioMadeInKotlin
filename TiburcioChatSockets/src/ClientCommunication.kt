@@ -1,50 +1,50 @@
-import java.io.*
+import java.io.BufferedReader
+import java.io.BufferedWriter
+import java.io.InputStreamReader
+import java.io.OutputStreamWriter
 import java.net.Socket
 import java.util.*
 
-class ClientCommunication(val socket: Socket): Thread() {
+class ClientCommunication(val socket: Socket) : Thread() {
 
     @Override
     override fun run() {
-        super.run()
-
-    serveClient(socket)
-
+        serveClient(socket)
     }
 
     private fun serveClient(socket: Socket) {
 
-        try {
-            var myis = socket.getInputStream()
-            var isr = InputStreamReader(myis)
-            var br = BufferedReader(isr)
+
+        var myis = socket.getInputStream()
+        var isr = InputStreamReader(myis)
+        var br = BufferedReader(isr)
+
+
+        var os = socket.getOutputStream()
+        var osw = OutputStreamWriter(os)
+        var bw = BufferedWriter(osw)
+        var sendLine: String
+
+        do {
             var line = br.readLine()
 
-            var os = socket.getOutputStream()
-            var osw = OutputStreamWriter(os)
-            var bw = BufferedWriter(osw)
 
             var sc = Scanner(System.`in`)
-            var sendLine: String
 
-            do {
+            println("Client said: $line")
 
-                println("Client said: +$line")
-                println("Write to Client: ")
+            println("Write to Client: ")
 
-                sendLine = sc.nextLine()
-                bw.write(sendLine)
-                bw.newLine()
-                bw.flush()
+            sendLine = sc.nextLine()
+            bw.write(sendLine)
+            bw.newLine()
+            bw.flush()
 
-            }while (line != "FIN")
+        } while (line != null)
 
-            if (br != null) { br.close() }
-        } catch (ex: IOException){
-
+        if (br != null) {
+            br.close()
         }
-
-
 
     }
 
