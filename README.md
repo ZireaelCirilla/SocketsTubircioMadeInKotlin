@@ -1,6 +1,7 @@
 # SocketsTubircioMadeInKotlin
 
-#### Ejemplo de Tiburcio con el protocolo terminado hecho con Kotlin.
+#### Sockets test in Kotlin.
 
-Al parecer se pueden remover todos los trycatch y Kotlin los controla automáticamente (No sé exactamente como funciona esto,
-lo averiguaré en cuanto pueda).
+###### This is an excercise i did in class when i started learning how to code. Our teacher explained it in Java and i wanted to make it in Kotlin.
+
+
